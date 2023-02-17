@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: group2c2-cicd-demo
+    app.kubernetes.io/instance: group2c2-cicd-demo-instance
+    app.kubernetes.io/version: '1.0.0'
+    app.kubernetes.io/managed-by: kubectl
+  name: group2c2-cicd-demo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: group2c2-cicd-demo
+  template:
+    metadata:
+      labels:
+        app: group2c2-cicd-demo
+    spec:
+      containers:
+        - image: group2c2todoeks:latest
+        imagePullPolicy: Always
+        name: group2c2-cicd-demo
+        ports:
+        - containerPort: 3001
