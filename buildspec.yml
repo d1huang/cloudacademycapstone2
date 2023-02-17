@@ -25,9 +25,9 @@ phases:
       - docker build -t group2todoeks .
   post_build:
     commands:
-    - docker tag  group2todoeks 962804699607.dkr.ecr.us-west-2.amazonaws.com/group2c2-danh-repo-eks:latest
-    - docker push 962804699607.dkr.ecr.us-west-2.amazonaws.com/group2c2-danh-repo-eks:latest
-    - kubectl apply -f deployment.yaml
-    - kubectl apply -f service.yaml
-    - kubectl rollout restart -f deployment.yaml
-    - kubectl get svc --all-namespaces
+      - docker tag  group2todoeks 962804699607.dkr.ecr.us-west-2.amazonaws.com/group2c2-danh-repo-eks:latest
+      - docker push 962804699607.dkr.ecr.us-west-2.amazonaws.com/group2c2-danh-repo-eks:latest
+      - kubectl apply -f deployment.yaml
+      - kubectl apply -f service.yaml
+      - kubectl rollout restart -f deployment.yaml
+      - kubectl get svc --all-namespaces
